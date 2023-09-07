@@ -16,15 +16,16 @@ app.get('/', (req, res) => {
 
 app.post('/send-url', urlencodedparser, async (req, res) => {
     let url = req.body.myurl;
-    res.send('worked form');
-
-    await ( async()=>{
-        // const response = await axios.get(url);
-        console.log(url);
-        // const $ = cherrio.load(response.data);
-        // const title = $('h1').text();
-        // console.log(title);
-    })();
+    
+    axios(url)
+    .then(response => {
+        const html = response.data;
+        const $ = cherrio.load(html);
+        const articles = $('p.smallcard-title');
+        console.log(articles.text());
+        res.render('index', { result: articles.text() });
+    })
+    .catch(err => console.log(err))
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
