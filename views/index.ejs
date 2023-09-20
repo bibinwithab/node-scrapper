@@ -14,6 +14,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
         }
         body{
             background-color: brown;
@@ -46,6 +47,16 @@
         }
         .result{
             text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: bisque;
+        }
+        .my-para{
+            font-size: larger;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: bisque;
+        }
+        span{
+            text-decoration: solid;
         }
     </style>
     <div class="container">
@@ -56,7 +67,10 @@
 
         <div class="result">
             <h1>Result</h1>
-            <p><%= result %></p>
+            <p class="my-para"><span>
+                Product Name:
+            </span><%= name %></p>
+            <p class="my-para"><%= article %></p>
         </div>
     </div>
 

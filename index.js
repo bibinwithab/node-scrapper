@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cherrio = require('cheerio');
 const axios = require('axios');
 
-
 const app = express();
 const PORT = 8000;
 const urlencodedparser = bodyParser.urlencoded({extended:false});
@@ -21,9 +20,11 @@ app.post('/send-url', urlencodedparser, async (req, res) => {
     .then(response => {
         const html = response.data;
         const $ = cherrio.load(html);
-        const articles = $('p.smallcard-title');
+        const articles = $('div.our_price');
+        const names = $('h1.like-h3');
+        console.log(names.text());
         console.log(articles.text());
-        res.render('index', { result: articles.text() });
+        res.render('index', { article: articles.text(), name:names.text() });
     })
     .catch(err => console.log(err))
 });
