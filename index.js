@@ -10,7 +10,7 @@ const urlencodedparser = bodyParser.urlencoded({extended:false});
 app.set( 'view engine', 'ejs' );
 
 app.get('/', (req, res) => {
-    res.render('index', { result: '' });
+    res.render('index',{ price:'' , name:'' });
 });
 
 app.post('/send-url', urlencodedparser, async (req, res) => {
