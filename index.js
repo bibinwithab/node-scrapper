@@ -20,11 +20,12 @@ app.post('/send-url', urlencodedparser, async (req, res) => {
     .then(response => {
         const html = response.data;
         const $ = cherrio.load(html);
-        const articles = $('div.our_price');
+        const prices = $('div.our_price');
         const names = $('h1.like-h3');
         console.log(names.text());
-        console.log(articles.text());
-        res.render('index', { article: articles.text(), name:names.text() });
+        console.log(prices.text());
+        res.render('index', { price: prices.text(), name:names.text() });
+
     })
     .catch(err => console.log(err))
 });
