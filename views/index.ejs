@@ -14,7 +14,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
+        }
+        .container h1{
+            font-size: 50px;
+            color: bisque;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
         body{
             background-color: brown;
@@ -26,10 +30,10 @@
             justify-content: center;
         }
         input{
-            width: 120%;
-            height: 50px;
+            width: 200%;
+            height: 12px;
             margin: 10px;
-            border: 1px solid black;
+            border: 1px solid brown;
             border-radius: 5px;
             padding: 10px;
             font-size: 20px;
@@ -38,7 +42,7 @@
             width: 50%;
             height: 50px;
             margin: 10px;
-            border: 1px solid black;
+            border: 1px solid brown;
             border-radius: 5px;
             padding: 10px;
             font-size: 20px;
@@ -60,13 +64,14 @@
         }
     </style>
     <div class="container">
+        <h1>SortNShop</h1>
         <form action="send-url" method="POST">
             <input type="text" placeholder="Enter the URL here...." name="myurl">
             <input type="submit" value="Send">
         </form>
 
         <div class="result">
-            <h1>Result</h1>
+            <h2>Result</h2>
             <p>
                 PRODUCT NAME: <%= name %>
             </p>
